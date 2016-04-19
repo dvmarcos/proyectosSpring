@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="defaultLayout"
+	>
+ <head>
+  
+   </head>
+   <body>
+  
+  
+  <section layout:fragment="content" id="content">
+  
+  
+   <h1>Listado de campos de Prueba</h1>
+  
+ 	
+		    <div th:each="p: ${pruebas}">
+		    <form name="formPrueba" th:object="${prueba}" th:action="@{/updatePrueba}" method="post" >
+		    	Id: <input type="text" th:value="${p.id}" th:readonly="readonly" name="id" />
+		    	Campo1: <input type="text"  th:value="${p.campo1}" name="campo1"/>
+		    	Campo2: <input type="text"  th:value="${p.campo2}" name="campo2" />
+		    	<button type="submit" th:formaction="@{/updatePrueba}"  th:text="modificar" th:value="modificar" />
+		    	<button type="submit" th:formaction="@{/removePrueba}"  th:text="borrar" th:value="borrar" />
+		    	<br/>
+		    	</form>
+		    </div>
+
+  
+  <h1>Añadir</h1>
+  <form name="formPrueba" th:object="${prueba}" th:action="@{/addPrueba}" method="post" >
+		Id: <input type="text" th:field="*{id}" id="id"/>
+		Campo1: <input type="text" th:field="*{campo1}" id="campo1"/>
+		Campo2: <input type="text" th:field="*{campo2}" id="campo2"/>
+		<button type="submit" class="btn btn-default" th:text="guardar" th:name="guardar"></button>
+								
+	</form>
+	
+	</section>
+	 </body>
+</html>
