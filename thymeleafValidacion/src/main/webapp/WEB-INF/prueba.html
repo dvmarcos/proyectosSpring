@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="defaultLayout"
+	>
+	
+	
+ <head>
+  
+   </head>
+   <body>
+  
+  <h1>Listado de campos de Prueba</h1>
+  
+  
+  <section layout:fragment="content" id="content">
+		
+		<form name="formPrueba" th:object="${pruebaDTO}" th:action="@{/addPrueba}" method="post" >
+				Id: <input type="text" th:field="*{id}" id="id"/><br/>
+				<p th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Error en el dato ingresado</p>
+				Campo1: <input type="text" th:field="*{columna1}" id="columna1"/><br/>
+				<p th:if="${#fields.hasErrors('columna1')}" th:errors="*{columna1}">Error en el dato ingresado</p>
+				Campo2: <input type="text" th:field="*{columna2}" id="columna2"/>
+		<button type="submit" class="btn btn-default" th:text="guardar" th:name="guardar"></button>
+								
+	</form>
+	
+	</section>
+	 </body>
+</html>

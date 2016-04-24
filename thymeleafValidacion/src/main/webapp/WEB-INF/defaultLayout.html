@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+  <head>
+    <title>Spring Thyme Seed Starter Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta http-equiv="Pragma" content="no-cache" /> 
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<!-- 	<meta th:content="#{default_layout_msssi_full}" name="description"/> -->
+<!-- 	<meta th:content="#{default_layout_msssi_full}" name="keywords"/> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+
+        
+  </head>
+
+  <body>
+   	<nav id="nav-superior">
+
+	</nav>
+
+    <div id="contenedor" class="container">
+<!-- 		<header layout:include="templates/header :: header" id="header"></header>       -->
+    	
+		<div class="mexito" th:text="${mensajeExito}" th:unless="${mensajeExito} == null"></div>
+		<div class="mfallo" th:text="${errorMessage}" th:unless="${errorMessage} == null"></div>
+		<div id="content" layout:fragment="content">
+			<span>Página en construcción</span>
+		</div>
+	
+    </div>
+
+	        
+
+  </body>
+</html>
